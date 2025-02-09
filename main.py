@@ -3,7 +3,6 @@ import argparse
 import requests
 import json
 
-# url = "https://data.cityofgainesville.org/resource/gvua-xt9q.json"
 def getDataFromApi(url):
     response = requests.get(url)
     if response.status_code == 200:
@@ -30,10 +29,8 @@ def formatValues(value):
 def processData(crime_records, offset, limit):
     
     if offset is None:
-        # print("offset: ",offset)
         offset=0
     if limit is None:
-        # print("limit: ", limit)
         limit = len(crime_records)
     else:
         limit = limit + offset
@@ -52,10 +49,10 @@ def processData(crime_records, offset, limit):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--url", type=str) 
-    parser.add_argument("--offset", default=None, type=int)
-    parser.add_argument("--limit", default=None, type=int)
-    parser.add_argument("--file", type=str)
+    parser.add_argument("--url", type=str, help="The source location on the web.") 
+    parser.add_argument("--offset", default=None, type=int, help="The offset to jump forward.")
+    parser.add_argument("--limit", default=None, type=int, help="The number of records you want to retrive.")
+    parser.add_argument("--file", type=str, help="The source location locally.")
     args = parser.parse_args()
     
     data=[]

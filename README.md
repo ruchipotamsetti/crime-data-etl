@@ -9,7 +9,7 @@ This script fetches and processes crime records from the given API or a local fi
 
 ---
 
-## **How to Install**
+## **To Install**
 To install the necessary dependencies using `pipenv`, run:
 ```sh
 pipenv install -e .
@@ -18,7 +18,7 @@ This will create a virtual environment and install all required packages.
 
 ---
 
-## **How to Run**
+## **To Run**
 Execute the program using:
 ```sh
 pipenv run python main.py --url https://data.cityofgainesville.org/resource/gvua-xt9q.json --offset 0 --limit 5
@@ -37,6 +37,16 @@ Theft,Burglaryþ2025-02-02T20:49:44.000þ2025-02-02T20:30:43.000þ29.64089þ-82.
 Assaultþ2025-01-12T16:00:42.000þþ29.67214þ-82.31548
 ```
 
+---
+
+## **To Test**
+After installing, use the command below to execute the pytests:
+```sh
+pipenv run python -m pytest -v
+```
+
+---
+
 ### **Example Video**
 ![video](video)
 
@@ -45,12 +55,18 @@ Assaultþ2025-01-12T16:00:42.000þþ29.67214þ-82.31548
 ## **Features and Functions**
 
 ### **`main.py`**
-- **`getDataFromApi(url)`** - Fetches JSON data from the provided API URL.
+- **`getDataFromApi(url)`** :
   - Fetches JSON data from the given API URL.
   - Parameters: url (str): The API endpoint to fetch data from.
   - Returns: A list of JSON objects (crime records) if successful, otherwise an empty list.
-- **`getDataFromFile(filepath)`** - Reads incident data from a local JSON file.
-- **`processData(crime_records, offset, limit)`** - Loops through the received crime records applying offset and/or limit filtering, extracts relevant fields, and formats the output using a thorn separator.
+- **`getDataFromFile(filepath)`** :
+  - Reads incident data from a local JSON file.
+  - Parameters: filepath (str): The path to the JSON file.
+  - Returns: A list of JSON objects (crime records) if successful, otherwise an empty list.
+- **`processData(crime_records, offset, limit)`** :
+  - Loops through the received crime records applying offset and/or limit filtering, extracts relevant fields, and formats the output using a thorn separator.
+  - Parameters: value: The value to format (can be a string, list, or None).
+  - Returns: str: A formatted string. If the value is a list, it joins elements with commas. If the value is None, it returns an empty string.
 
 ---
 

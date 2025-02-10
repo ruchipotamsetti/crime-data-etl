@@ -1,17 +1,23 @@
-
+# Import the necessary libraries
 import argparse
 import requests
 import json
+
+
+
+# This function takes url as the input argument, fetches data from the API and return the file in the JSON format
 
 def getDataFromApi(url):
     response = requests.get(url)
     if response.status_code == 200:
         crime_records = response.json() 
         return crime_records 
+    # if the functions fails to fetch the data, then print the error code
     else:
         print(f"Error : {response.status_code}")
         return []
 
+# This function returns a list of crime records by parsing the JSON file that is fetched.
 def getDataFromFile(filepath):
     try:
         with open(filepath, "r", encoding="utf-8") as file:
@@ -19,15 +25,15 @@ def getDataFromFile(filepath):
     except Exception as e:
         print(f"Error: Unable to read file - {e}")
         return []
-    
+
+# This function returns elements joined by commas if the value is a list. If the passed value is None, it returns an empty string.
 def formatValues(value):
     if isinstance(value, list):
         return ",".join(map(str, value))
     return str(value) if value else ""
-    return
 
+# This function returns a string with only the required fields seperated by thorn character, filtering the data using the parameters passed
 def processData(crime_records, offset, limit):
-    
     if offset is None:
         offset=0
     if limit is None:
@@ -48,23 +54,23 @@ def processData(crime_records, offset, limit):
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser() # creating ArgumentParser object to handle command-line arguments
     parser.add_argument("--url", type=str, help="The source location on the web.") 
     parser.add_argument("--offset", default=None, type=int, help="The offset to jump forward.")
     parser.add_argument("--limit", default=None, type=int, help="The number of records you want to retrive.")
     parser.add_argument("--file", type=str, help="The source location locally.")
-    args = parser.parse_args()
+    args = parser.parse_args() # parsing the arguments and storing them in args
     
-    data=[]
+    records=[]
     offset = args.offset
     limit = args.limit
     if args.url:
-        data = getDataFromApi(args.url)
+        records = getDataFromApi(args.url) 
     elif args.file:
-        data = getDataFromFile(args.file)
+        records = getDataFromFile(args.file)
     else:
         print("Error: Either --url or --file must be provided")
 
-    result = processData(data, offset, limit)
-    for line in result:
-        print(line)
+    formatted_crime_records = processData(records, offset, limit)
+    for record in formatted_crime_records:
+        print(record)

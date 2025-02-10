@@ -67,7 +67,7 @@ pipenv run python -m pytest -v
 ---
 
 ### **Example Video**
-![me](https://github.com/ruchipotamsetti/cis6930sp25-assignment1/blob/master/Assignment1_demo.gif)
+![](https://github.com/ruchipotamsetti/cis6930sp25-assignment1/blob/master/Assignment1_demo.gif)
 ---
 
 ## **Features and Functions**

@@ -6,7 +6,6 @@ import json
 
 
 # This function takes url as the input argument, fetches data from the API and return the file in the JSON format
-
 def getDataFromApi(url):
     response = requests.get(url)
     if response.status_code == 200:

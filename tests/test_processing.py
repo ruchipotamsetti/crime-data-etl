@@ -1,39 +1,36 @@
-import unittest
-from main import processData
+from main import processData, getDataFromFile
 
-class TestDataProcessing(unittest.TestCase):
+# Test extracting an arbitrary offset and limit
+def test_filtering_with_offset_and_limit():
+    crime_records = getDataFromFile("resources/data.json")
+    result = processData(crime_records, offset=1, limit=2)
+    expected = [
+        "Battery (simple)þ2025-02-03T22:29:21.000þ2025-02-01T01:30:00.000þ29.65197þ-82.32623",
+        "þ2025-02-03T21:22:07.000þ2025-02-03T20:42:00.000þ29.67923þ-82.27794"
+    ]
+    # self.assertEqual(result, expected)
+    assert result == expected
 
-    def setUp(self):
-        self.sample_data = [
-            {"narrative": ["Theft", "Burglary"], "report_date": "2025-01-20", "offense_date": "", "latitude": 29.67, "longitude": -82.33},
-            {"narrative": "Robbery", "report_date": "2025-01-21", "offense_date": "2025-01-21", "latitude": None, "longitude": -82.22},
-            {"narrative": "Fraud", "report_date": "2025-01-22", "offense_date": "2025-01-22", "latitude": 29.55, "longitude": -82.11}
-        ]
+# Test extracting incident type (single & multiple values)
+def test_extracting_incident_type():
+    crime_records = getDataFromFile("resources/data.json")
+    result = processData(crime_records, offset=0, limit=1)
+    expected = ["Suspicious Incident,Domestic Simple Batteryþ2025-02-04T00:45:42.000þ2025-02-04T00:30:41.000þþ-82.32067"]
+    # self.assertEqual(result, expected)
+    assert result == expected
 
-    # Test extracting an arbitrary offset and limit
-    def test_filtering_with_offset_and_limit(self):
-        result = processData(self.sample_data, offset=1, limit=2)
-        expected = [
-            "Robberyþ2025-01-21þ2025-01-21þþ-82.22",
-            "Fraudþ2025-01-22þ2025-01-22þ29.55þ-82.11"
-        ]
-        self.assertEqual(result, expected)
+# Test extracting report and offense dates
+def test_extracting_dates():
+    crime_records = getDataFromFile("resources/data.json")
+    result = processData(crime_records, offset=1, limit=1)
+    expected = ["Battery (simple)þ2025-02-03T22:29:21.000þ2025-02-01T01:30:00.000þ29.65197þ-82.32623"]
+    # self.assertEqual(result, expected)
+    assert result == expected
 
-    # Test extracting incident type (single & multiple values)
-    def test_extracting_incident_type(self):
-        result = processData(self.sample_data, offset=0, limit=1)
-        self.assertEqual(result, ["Theft,Burglaryþ2025-01-20þþ29.67þ-82.33"])
-
-    # Test extracting report and offense dates
-    def test_extracting_dates(self):
-        result = processData(self.sample_data, offset=1, limit=1)
-        self.assertEqual(result, ["Robberyþ2025-01-21þ2025-01-21þþ-82.22"])
-
-    # Test extracting latitude and longitude
-    def test_extracting_latitude_longitude(self):
-        
-        result = processData(self.sample_data, offset=2, limit=1)
-        self.assertEqual(result, ["Fraudþ2025-01-22þ2025-01-22þ29.55þ-82.11"])
-
-if __name__ == "__main__":
-    unittest.main()
+# Test extracting latitude and longitude
+def test_extracting_latitude_longitude():
+    crime_records = getDataFromFile("resources/data.json")
+    result = processData(crime_records, offset=4, limit=1)
+    expected = ["Domestic Simple Batteryþ2025-02-03T19:26:00.000þ2025-02-03T19:20:00.000þ29.64258þ"]
+    # self.assertEqual(result, expected)
+    assert result == expected

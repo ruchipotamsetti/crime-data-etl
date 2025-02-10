@@ -26,7 +26,7 @@ cis6930sp25-assignment1/
     ├── test_output_format.py    # Tests to verify extraction of relevant fields and filtering.
     └── test_processing.py       # Tests to verify the thorn-separated output format.
 └── resources/                # Directory containing all test files.
-    ├── data.json  # Mock json data file to run tests.
+    └── data.json  # Mock json data file to run tests.
 ```
 
 ---

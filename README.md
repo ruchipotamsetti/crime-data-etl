@@ -67,7 +67,7 @@ pipenv run python -m pytest -v
 ---
 
 ### **Example Video**
-![video](video)
+![video](https://drive.google.com/file/d/1tvGOkto2ra94LZca7AtJxsSea-2yNTSI/view?usp=sharing)
 
 ---
 

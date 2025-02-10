@@ -46,6 +46,9 @@ Assaultþ2025-01-12T16:00:42.000þþ29.67214þ-82.31548
 
 ### **`main.py`**
 - **`getDataFromApi(url)`** - Fetches JSON data from the provided API URL.
+  - Fetches JSON data from the given API URL.
+  - Parameters: url (str): The API endpoint to fetch data from.
+  - Returns: A list of JSON objects (crime records) if successful, otherwise an empty list.
 - **`getDataFromFile(filepath)`** - Reads incident data from a local JSON file.
 - **`processData(crime_records, offset, limit)`** - Loops through the received crime records applying offset and/or limit filtering, extracts relevant fields, and formats the output using a thorn separator.
 

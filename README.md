@@ -103,9 +103,8 @@ pipenv run python -m pytest -v
 
 ## **Bugs and Assumptions**
 - If both the API url and file are provided in the command line as arguments then it would fetch data from the API.
-- Assumes that API responses always return valid JSON.
-- Requires an active internet connection when fetching data from a URL.
-- Limited error handling for malformed JSON files.
+- The script makes the assumption that proper JSON is always returned by API responses.
+- In order to retrieve data from a URL, an active internet connection is required.
 
 ---
 

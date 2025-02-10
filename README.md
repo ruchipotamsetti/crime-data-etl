@@ -57,16 +57,26 @@ pipenv run python -m pytest -v
 ### **`main.py`**
 - **`getDataFromApi(url)`** :
   - Fetches JSON data from the given API URL.
-  - Parameters: url (str): The API endpoint to fetch data from.
+  - Parameters:
+    - url (str): The API endpoint to fetch data from.
   - Returns: A list of JSON objects (crime records) if successful, otherwise an empty list.
 - **`getDataFromFile(filepath)`** :
   - Reads incident data from a local JSON file.
-  - Parameters: filepath (str): The path to the JSON file.
+  - Parameters:
+     - filepath (str): The path to the JSON file.
   - Returns: A list of JSON objects (crime records) if successful, otherwise an empty list.
-- **`processData(crime_records, offset, limit)`** :
-  - Loops through the received crime records applying offset and/or limit filtering, extracts relevant fields, and formats the output using a thorn separator.
-  - Parameters: value: The value to format (can be a string, list, or None).
+- **`formatValues(value)`** :
+  - Formats the field values as required. If a field has multiple entries it is seperated by commas. If a field has null or empty entries it is considered as blank.
+  - Parameters:
+     - value: The value to format (can be a string, list, or None).
   - Returns: str: A formatted string. If the value is a list, it joins elements with commas. If the value is None, it returns an empty string.
+- **`processData(crime_records, offset, limit)`** 
+  - Loops through the received crime records applying offset and/or limit filtering, extracts relevant fields, and formats the output using a thorn separator.
+  - Parameters: crime_records (list):
+     - The list of crime records (JSON objects).
+     - offset (int): The number of records to skip before processing.
+     - limit (int): The number of records to return.
+  - Returns: list: A list of formatted strings, where fields are separated by the thorn (þ) character.
 
 ---
 

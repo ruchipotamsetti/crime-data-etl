@@ -9,6 +9,25 @@ This script fetches and processes crime records from the given API or a local fi
 
 ---
 
+## **Project Structure** 
+
+```plaintext
+cis6930sp25-assignment1/
+├── COLLABORATORS.md      # A markdown file describing collaborations and inspirations taken from other websites.
+├── Pipfile               # Defines the dependencies and virtual environment for the project (used with pipenv).
+├── README.md             # Project description and instructions.
+├── main.py               # Main Python script that contains the core functionality of the project.
+├── pyproject.toml        # Configuration file for the project, used by pipenv.
+└── .github/workflows          
+    ├── pytest.yaml  # Configuration file for running tests using GitHub Actions (CI).
+└── tests/                # Directory containing all test files.
+    ├── test_downloading_data.py  # Tests related to downloading data from API and files.
+    ├── test_output_format.py    # Tests to verify extraction of relevant fields and filtering.
+    └── test_processing.py       # Tests to verify the thorn-separated output format.
+```
+
+---
+
 ## **To Install**
 To install the necessary dependencies using `pipenv`, run:
 ```sh
@@ -48,8 +67,11 @@ pipenv run python -m pytest -v
 ---
 
 ### **Example Video**
-![video](video)
-
+![video](https://drive.google.com/file/d/1tvGOkto2ra94LZca7AtJxsSea-2yNTSI/view?usp=sharing)
+<video width="600" controls>
+  <source src="https://drive.google.com/uc?export=download&id=1tvGOkto2ra94LZca7AtJxsSea-2yNTSI" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 ---
 
 ## **Features and Functions**

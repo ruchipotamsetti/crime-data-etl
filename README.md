@@ -68,7 +68,10 @@ pipenv run python -m pytest -v
 
 ### **Example Video**
 ![video](https://drive.google.com/file/d/1tvGOkto2ra94LZca7AtJxsSea-2yNTSI/view?usp=sharing)
-
+<video width="600" controls>
+  <source src="https://drive.google.com/uc?export=download&id=1tvGOkto2ra94LZca7AtJxsSea-2yNTSI" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 ---
 
 ## **Features and Functions**

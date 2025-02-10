@@ -44,7 +44,7 @@ pipenv run python main.py --url https://data.cityofgainesville.org/resource/gvua
 ```
 Alternatively, you can run it with a local JSON file:
 ```sh
-pipenv run python main.py --file data.json --offset 2 --limit 3
+pipenv run python main.py --file resources/data.json --offset 2 --limit 3
 ```
 
 ---

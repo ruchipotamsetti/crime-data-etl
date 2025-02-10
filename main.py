@@ -68,7 +68,7 @@ if __name__ == "__main__":
     elif args.file:
         records = getDataFromFile(args.file)
     else:
-        print("Error: Either --url or --file must be provided")
+        print("--url or --file needs to be provided")
 
     formatted_crime_records = processData(records, offset, limit)
     for record in formatted_crime_records:

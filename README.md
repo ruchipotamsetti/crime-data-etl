@@ -13,12 +13,12 @@ This script fetches and processes crime records from the given API or a local fi
 
 ```plaintext
 cis6930sp25-assignment1/
-├── COLLABORATORS.md      # A markdown file describing collaborations and inspirations taken from other websites.
-├── Pipfile               # Defines the dependencies and virtual environment for the project (used with pipenv).
-├── README.md             # Project description and instructions.
-├── main.py               # Main Python script that contains the core functionality of the project.
-├── pyproject.toml        # Configuration file for the project, used by pipenv.
-├── Assignment1_demo.gif  # Demo video
+├── COLLABORATORS.md              # A markdown file describing collaborations and inspirations taken from other websites.
+├── Pipfile                       # Defines the dependencies and virtual environment for the project (used with pipenv).
+├── README.md                     # Project description and instructions.
+├── main.py                       # Main Python script that contains the core functionality of the project.
+├── pyproject.toml                # Configuration file for the project, used by pipenv.
+├── Assignment1_demo.gif          # Demo video
 └── .github/workflows          
     ├── pytest.yaml               # Configuration file for running tests using GitHub Actions (CI).
 └── tests/                        # Directory containing all test files.

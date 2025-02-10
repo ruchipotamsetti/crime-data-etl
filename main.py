@@ -19,7 +19,7 @@ def getDataFromApi(url):
 # This function returns a list of crime records by parsing the JSON file that is fetched.
 def getDataFromFile(filepath):
     try:
-        with open(filepath, "r", encoding="utf-8") as file:
+        with open(filepath, "r") as file:
             return json.load(file)
     except Exception as e:
         print(f"Error: Unable to read file - {e}")

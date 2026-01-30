@@ -1,10 +1,7 @@
-# **cis6930sp25 -- Assignment1**
-
-**Name:** Ruchita Potamsetti
-
+# **crime-data-etl**
 ---
 
-## **Assignment Description**
+## **Description**
 This script fetches and processes crime records from the given API or a local file. It takes command line parameters like offset and limit to filter the number of records needed. Then from the filtered records relevant fields are extracted and are seperated by a thorn (`þ`) character before printing to STDOUT. Fields that have multiple entries are seperated by commas and the fields with null or empty entries are left blank.
 
 ---

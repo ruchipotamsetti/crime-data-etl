@@ -9,7 +9,7 @@ This script fetches and processes crime records from the given API or a local fi
 ## **Project Structure** 
 
 ```plaintext
-cis6930sp25-assignment1/
+crime-data-etl/
 ├── COLLABORATORS.md              # A markdown file describing collaborations and inspirations taken from other websites.
 ├── Pipfile                       # Defines the dependencies and virtual environment for the project (used with pipenv).
 ├── README.md                     # Project description and instructions.
